@@ -292,8 +292,7 @@ function prepareDataDir() {
 
 # Asks for masternode privkey to be entered into mag.conf
 function masternodeEntries() {
-	#local NODEIP=$(curl -s4 api.ipify.org)
-	local NODEIP=$(curl -s4 ipinfo.io/ip)
+	local NODEIP="[$(dig @resolver1.opendns.com AAAA myip.opendns.com +short -6)]"
 	local MNPRIVKEY="";
 	#while [ -z "${MNPRIVKEY// }" ] && [[ $MNPRIVKEY =~ ^3[npo][1-9A-HJ-NP-Za-km-z]{49} ]]; do
 	while [[ ! $MNPRIVKEY =~ ^5[mn][1-9A-HJ-NP-Za-km-z]{49} ]]; do
